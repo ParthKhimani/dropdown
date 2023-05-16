@@ -1,4 +1,4 @@
-# rc-dropdown
+# parth-dropdown
 
 react dropdown component
 

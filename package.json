@@ -12,15 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/dropdown.git"
+    "url": "git+ssh://git@github.com/react-component/dropdown.git"
   },
   "license": "MIT",
+  "author": "Parth-Nikhil",
   "maintainers": [
     "yiminghe@gmail.com",
     "hualei5280@gmail.com"
   ],
   "main": "lib/index",
   "module": "./es/index",
+  "types": "./lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "doc": "docs",
+    "test": "tests"
+  },
   "files": [
     "lib",
     "es",
