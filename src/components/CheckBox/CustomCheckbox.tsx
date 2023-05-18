@@ -2,13 +2,15 @@ import React, { ChangeEvent } from 'react';
 
 interface CustomCheckboxProps {
   label: string;
-  name: string;
+  value: string;
   validationErrorMessage?: string;
+  getData?: (data: {}) => void;
 }
 
 interface CustomCheckboxState {
   isChecked: boolean;
   isValid: boolean;
+  data: {};
 }
 
 class CustomCheckbox extends React.Component<
@@ -19,6 +21,7 @@ class CustomCheckbox extends React.Component<
     super(props);
 
     this.state = {
+      data: {},
       isChecked: false,
       isValid: true,
     };
@@ -26,23 +29,38 @@ class CustomCheckbox extends React.Component<
 
   handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
-    this.setState({
-      isChecked,
-    });
+    this.setState(
+      {
+        isChecked,
+      },
+      () => {
+        if (this.state.isChecked) {
+          if (this.props.getData) {
+            this.props.getData({
+              [this.props.value]: 'true',
+            });
+          }
+        } else {
+          if (this.props.getData) {
+            this.props.getData({
+              [this.props.value]: 'false',
+            });
+          }
+        }
+      },
+    );
   };
 
   handleCheckboxBlur = () => {
     const { isChecked } = this.state;
-
     const isValid = isChecked;
-
     this.setState({
       isValid,
     });
   };
 
   render() {
-    const { label, name, validationErrorMessage } = this.props;
+    const { label, value, validationErrorMessage } = this.props;
     const { isChecked, isValid } = this.state;
 
     return (
@@ -50,7 +68,7 @@ class CustomCheckbox extends React.Component<
         <label>
           <input
             type="checkbox"
-            name={name}
+            name={value}
             checked={isChecked}
             onChange={this.handleCheckboxChange}
             onBlur={this.handleCheckboxBlur}
