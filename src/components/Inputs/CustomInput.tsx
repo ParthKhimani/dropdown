@@ -37,7 +37,7 @@ class CustomInput extends React.Component<CustomInputProps, CustomInputState> {
 
   handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
-    var { validationPattern } = this.props;
+    let { validationPattern } = this.props;
     const { validationErrorMessage } = this.props;
 
     let isValid = true;
