@@ -4,6 +4,7 @@ interface CustomCheckboxProps {
   label: string;
   value: string;
   validationErrorMessage?: string;
+  className?: string;
   getData?: (data: {}) => void;
 }
 
@@ -60,7 +61,7 @@ class CustomCheckbox extends React.Component<
   };
 
   render() {
-    const { label, value, validationErrorMessage } = this.props;
+    const { label, value, validationErrorMessage, className } = this.props;
     const { isChecked, isValid } = this.state;
 
     return (
@@ -70,12 +71,13 @@ class CustomCheckbox extends React.Component<
             type="checkbox"
             name={value}
             checked={isChecked}
+            className={className}
             onChange={this.handleCheckboxChange}
             onBlur={this.handleCheckboxBlur}
           />
           {label}
         </label>
-        {!isValid && <p className="error">{validationErrorMessage}</p>}
+        {!isValid && <span className="error">{validationErrorMessage}</span>}
       </div>
     );
   }
