@@ -94,7 +94,7 @@ class CustomInput extends React.Component<CustomInputProps, CustomInputState> {
     const { value, isValid } = this.state;
 
     return (
-      <div>
+      <>
         <label>{label}</label>
         <input
           type={type}
@@ -106,7 +106,7 @@ class CustomInput extends React.Component<CustomInputProps, CustomInputState> {
           placeholder={placeholder}
         />
         {!isValid && <span className="error">{validationErrorMessage}</span>}
-      </div>
+      </>
     );
   }
 }

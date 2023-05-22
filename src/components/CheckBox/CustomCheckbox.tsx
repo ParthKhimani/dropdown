@@ -65,7 +65,7 @@ class CustomCheckbox extends React.Component<
     const { isChecked, isValid } = this.state;
 
     return (
-      <div>
+      <>
         <label>
           <input
             type="checkbox"
@@ -78,7 +78,7 @@ class CustomCheckbox extends React.Component<
           {label}
         </label>
         {!isValid && <span className="error">{validationErrorMessage}</span>}
-      </div>
+      </>
     );
   }
 }
