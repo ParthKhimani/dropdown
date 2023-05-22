@@ -77,7 +77,7 @@ class CustomCheckbox extends React.Component<
           />
           {label}
         </label>
-        {!isValid && <p className="error">{validationErrorMessage}</p>}
+        {!isValid && <p className="err">{validationErrorMessage}</p>}
       </>
     );
   }

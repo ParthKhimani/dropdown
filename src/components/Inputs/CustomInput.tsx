@@ -105,7 +105,7 @@ class CustomInput extends React.Component<CustomInputProps, CustomInputState> {
           onBlur={this.handleBlur}
           placeholder={placeholder}
         />
-        {!isValid && <p className="error">{validationErrorMessage}</p>}
+        {!isValid && <p className="err">{validationErrorMessage}</p>}
       </>
     );
   }
