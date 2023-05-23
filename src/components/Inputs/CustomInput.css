@@ -1,3 +1,11 @@
 .err {
     color: red;
 }
+
+.input-tag {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 5px;
+  }
